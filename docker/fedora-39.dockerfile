@@ -31,9 +31,11 @@ dnf -y update
 dnf -y group install "Development Tools"
 dnf -y install \
   cmake-3.27.* \
+  doxygen \
   gcc-13.2.* \
   gcc-c++-13.2.* \
   git \
+  graphviz \
   libappindicator-gtk3-devel \
   libcap-devel \
   libcurl-devel \
@@ -57,6 +59,7 @@ dnf -y install \
   openssl-devel \
   opus-devel \
   pulseaudio-libs-devel \
+  python3.11 \
   rpm-build \
   wget \
   which \
@@ -107,7 +110,6 @@ RUN <<_MAKE
 set -e
 cmake \
   -DCMAKE_CUDA_COMPILER:PATH=/build/cuda/bin/nvcc \
-  -DBUILD_DOCS=OFF \
   -DBUILD_WERROR=ON \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_INSTALL_PREFIX=/usr \
